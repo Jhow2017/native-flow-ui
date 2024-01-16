@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 
 // types
-import { BaseViewTypesProps } from '@ds/core/types/view';
+import { BaseViewTypesProps } from '../../core/types/view';
 
 export type DsTextTypes = BaseViewTypesProps & {
     children?: ReactNode;

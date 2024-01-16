@@ -1,4 +1,4 @@
-import { ComponentMounterType } from '@ds/core/component-mounter/types';
+import { ComponentMounterType } from '../../core/component-mounter/types';
 import { Link } from 'expo-router';
 
 export type DsLinkRef = React.ElementRef<typeof Link>;

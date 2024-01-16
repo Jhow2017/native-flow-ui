@@ -4,7 +4,7 @@ import React, { forwardRef } from 'react';
 import type { DsLinkRef, DsLinkType } from './types';
 
 // componentMounter
-import ComponentMounter from '@ds/core/component-mounter';
+import ComponentMounter from '../../core/component-mounter';
 
 const DsLink = forwardRef<DsLinkRef, DsLinkType>((props, ref) => {
     const { children, ...attr } = props;

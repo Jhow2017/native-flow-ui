@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { Dimensions } from 'react-native';
 
-import { BreakpointKeys, breakpoints } from '@ds/config/tokens/breakpoints';
+import { BreakpointKeys, breakpoints } from '../../config/tokens/breakpoints';
 
 const useBreakpoint = (): BreakpointKeys => {
     const screenWidth = Dimensions.get('window').width;

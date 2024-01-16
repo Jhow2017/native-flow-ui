@@ -5,8 +5,8 @@ import { Insets, TouchableOpacityProps } from 'react-native';
 // type local
 import { DsTextTypes } from '../text/types';
 
-import type { BaseButtonTypesProps } from '@ds/core/types/icon';
-import { Color } from '@ds/core/types/color';
+import type { BaseButtonTypesProps } from '../../core/types/icon';
+import { Color } from '../../core/types/color';
 
 export type IconsType =
     | 'bille'

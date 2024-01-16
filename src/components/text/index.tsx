@@ -1,7 +1,7 @@
 import React from 'react';
 
 //
-import ComponentMounter from '@ds/core/component-mounter';
+import ComponentMounter from '../../core/component-mounter';
 
 // types
 import { DsTextTypes } from './types';

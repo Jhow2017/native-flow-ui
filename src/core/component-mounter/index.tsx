@@ -3,7 +3,7 @@ import { Platform } from 'react-native';
 // utils/hooks
 import filterStyles from '../utils/filters/filterStyles';
 import filterTextStyles from '../utils/filters/filterTextStyles';
-import useBreakpoint from '@ds/hooks/useBreakpoint';
+import useBreakpoint from '../../hooks/useBreakpoint';
 
 // types
 import type { ComponentMounterType } from './types';

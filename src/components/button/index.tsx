@@ -8,17 +8,17 @@ import { DsButtonType } from './types';
 import { buttonConfig } from './config-variants';
 
 // hooks
-import { useResolvedBreakpointValue } from '@ds/hooks';
+import { useResolvedBreakpointValue } from '../../hooks';
 
 // utils
-import filterTextStyles from '@ds/core/utils/filters/filterTextStyles';
+import filterTextStyles from '../../core/utils/filters/filterTextStyles';
 
 // componentMounter
-import ComponentMounter from '@ds/core/component-mounter';
+import ComponentMounter from '../../core/component-mounter';
 
 // ds
 import DsIcon from '../icon';
-import { DsText, DsFlex } from '@ds/components/';
+import { DsText, DsFlex } from '../../components/';
 
 const DsButton: React.FC<DsButtonType> = (props) => {
     const {

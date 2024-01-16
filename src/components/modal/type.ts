@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 import { MotiProps } from 'moti';
 
 // type
-import type { DsBoxType } from '@ds/components/box/type';
+import type { DsBoxType } from '../../components/box/type';
 
 export type AnimationType = 'top' | 'right' | 'bottom' | 'left' | 'fade';
 export type TransitionTypes = 'timing' | 'spring';

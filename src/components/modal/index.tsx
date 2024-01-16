@@ -7,10 +7,10 @@ import type { DsModalTypes } from './type';
 import type { DsBoxType } from '../box/type';
 
 // hook
-import { useModalAnimation } from '@ds/hooks';
+import { useModalAnimation } from '../../hooks';
 
 // @Ds
-import { DsBox } from '@ds/components';
+import { DsBox } from '../../components';
 
 const DsModal: React.FC<DsModalTypes> = (props) => {
     const { visible, onClose, children, animation = 'fade', transition, ...attr } = props;

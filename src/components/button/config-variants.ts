@@ -1,4 +1,4 @@
-import { Color } from '@ds/core/types/color';
+import { Color } from '../../core/types/color';
 
 type ButtonConfig = {
     backgroundColors: {

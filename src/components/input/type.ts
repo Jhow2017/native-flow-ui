@@ -1,4 +1,4 @@
-import { BaseInputTypes, BaseViewTypesProps, FontFamily } from '@ds/core/types';
+import { BaseInputTypes, BaseViewTypesProps, FontFamily } from '../../core/types';
 
 type InputTypes = 'text' | 'search' | 'date' | 'password' | 'number';
 

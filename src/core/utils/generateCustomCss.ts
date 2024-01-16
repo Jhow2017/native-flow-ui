@@ -1,7 +1,7 @@
 import { Dimensions } from 'react-native';
 
 // config
-import { breakpoints } from '@ds/config/tokens/breakpoints';
+import { breakpoints } from '../../config/tokens/breakpoints';
 
 // types
 import type { BreakpointValue } from '../types/breakpointValue';

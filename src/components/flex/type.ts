@@ -1,3 +1,3 @@
-import { ComponentMounterType } from '@ds/core/component-mounter/types';
+import { ComponentMounterType } from '../../core/component-mounter/types';
 
 export type DsFlexType = {} & ComponentMounterType;

@@ -2,17 +2,17 @@ import React, { useState, forwardRef } from 'react';
 import { TextInput, TextInputProps } from 'react-native';
 
 //utils
-import { transformPlaceholder } from '@ds/core/utils/transformPlaceholder';
-import { cssInputTextOnlyPropsValue } from '@ds/core/utils/constants';
-import filterStyles from '@ds/core/utils/filters/filterStyles';
-import useBreakpoint from '@ds/hooks/useBreakpoint';
+import { transformPlaceholder } from '../../core/utils/transformPlaceholder';
+import { cssInputTextOnlyPropsValue } from '../../core/utils/constants';
+import filterStyles from '../../core/utils/filters/filterStyles';
+import useBreakpoint from '../../hooks/useBreakpoint';
 
 //types
 import { DsInputProps } from './type';
 
 //@ds
-import { DsFlex, DsIcon, DsText } from '@ds/components';
-import ComponentMounter from '@ds/core/component-mounter';
+import { DsFlex, DsIcon, DsText } from '../../components';
+import ComponentMounter from '../../core/component-mounter';
 
 const DsInput = forwardRef<TextInput, DsInputProps>(({ type, margin, padding, ...props }, ref) => {
     const { children, textTransform, placeholder, error, ...attr } = props;

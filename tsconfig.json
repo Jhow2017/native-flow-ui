@@ -14,12 +14,7 @@
         "strict": true,
         "skipLibCheck": true,
         "target": "es2016",
-        "rootDir": "src",
-        "baseUrl": "./",
-        "paths": {
-            "@ds/*": ["src/*"],
-            "@components/*": ["src/components/*"]
-        }
+        "rootDir": "src"
     },
     "include": ["src/**/*.ts", "src/**/*.tsx"],
     "exclude": ["node_modules"]

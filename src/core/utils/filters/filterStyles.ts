@@ -1,4 +1,4 @@
-import { breakpoints } from '@ds/config/tokens/breakpoints';
+import { breakpoints } from '../../../config/tokens/breakpoints';
 import { cssValue as defaultCssValue } from '../constants';
 import { Dimensions } from 'react-native';
 

@@ -2,8 +2,8 @@ import { TouchableOpacityProps } from 'react-native';
 
 // types
 import type { IconsType } from '../icon/types';
-import type { ComponentMounterType } from '@ds/core/component-mounter/types';
-import { BreakpointValue } from '@ds/core/types/breakpointValue';
+import type { ComponentMounterType } from '../../core/component-mounter/types';
+import { BreakpointValue } from '../../core/types/breakpointValue';
 
 type SizeButtonType = 'small' | 'medium' | 'large' | 'xlarge';
 

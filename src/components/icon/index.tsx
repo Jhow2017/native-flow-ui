@@ -7,8 +7,8 @@ import { DsIconType, sizeMapping } from './types';
 import { ICONS } from './icons';
 
 //components
-import { DsText } from '@ds/components';
-import ComponentMounter from '@ds/core/component-mounter';
+import { DsText } from '../../components';
+import ComponentMounter from '../../core/component-mounter';
 
 const DsIcon: React.FC<DsIconType> = (props) => {
     const { fontSize, icon, size = 'small', stylesText, color, children, ...attr } = props;

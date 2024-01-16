@@ -1,5 +1,5 @@
 import React from 'react';
-import ComponentMounter from '@ds/core/component-mounter';
+import ComponentMounter from '../../core/component-mounter';
 import { DsBoxType } from './type';
 
 const DsBox: React.FC<DsBoxType> = (props) => {
