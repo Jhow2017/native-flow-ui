@@ -7,9 +7,8 @@
     "files": [
         "dist"
     ],
-    "types": "dist/index.d.ts",
     "scripts": {
-        "build": "rm -rf dist/ && npx prettier --write src/ && npm run build:esm && npm run build:cjs",
+        "build": "rm -rf dist/ && prettier --write src/ && npm run build:esm && npm run build:cjs",
         "build:esm": "tsc",
         "build:cjs": "tsc --module CommonJS --outDir dist/cjs",
         "rm": "rm -rf node_modules"
@@ -22,9 +21,7 @@
     "author": "",
     "license": "ISC",
     "devDependencies": {
-        "@babel/core": "^7.0.0",
-        "@babel/preset-react": "^7.0.0",
-        "@babel/preset-typescript": "^7.0.0",
+        "@types/node": "^17.0.21",
         "@types/react": "^18.0.21",
         "prettier": "^3.2.2",
         "react": "^18.2.0",
