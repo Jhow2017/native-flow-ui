@@ -9,7 +9,7 @@
     ],
     "types": "dist/index.d.ts",
     "scripts": {
-        "build": "rm -rf dist/ && prettier --write src/ && npm run build:esm && npm run build:cjs",
+        "build": "rm -rf dist/ && npx prettier --write src/ && npm run build:esm && npm run build:cjs",
         "build:esm": "tsc",
         "build:cjs": "tsc --module CommonJS --outDir dist/cjs",
         "rm": "rm -rf node_modules"
@@ -26,6 +26,7 @@
         "@babel/preset-react": "^7.0.0",
         "@babel/preset-typescript": "^7.0.0",
         "@types/react": "^18.0.21",
+        "prettier": "^3.2.2",
         "react": "^18.2.0",
         "react-native": "0.72.6",
         "typescript": "^4.8.3"

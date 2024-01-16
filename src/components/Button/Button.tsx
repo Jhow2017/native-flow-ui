@@ -19,12 +19,12 @@ const styles = StyleSheet.create({
         padding: 10,
         borderRadius: 5,
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'center'
     },
     text: {
         color: 'white',
-        fontSize: 16,
-    },
+        fontSize: 16
+    }
 });
 
 export default Button;
