@@ -17,8 +17,8 @@ Ui component to react native (Expo Go, TypeScript, Styled-component and expo rou
 Instale my-project com npm
 
 ```bash
-  npm install my-project
-  cd my-project
+  npm install native-flow-ui
+  yarn add native-flow-ui
 ```
     
 ## Screenshots
