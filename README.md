@@ -6,11 +6,12 @@ Ui component to react native (Expo Go, TypeScript, Styled-component and expo rou
 
 ## Funcionalidades
 
-- Temas dark e light
-- Preview em tempo real
-- Modo tela cheia
-- Multiplataforma
-
+- Temas dark e light (only 2)
+- Ui Declarative
+- Breakpoint
+- Breakpoint using values interval
+- _css to css styled-component
+- _platform function props to add validation ios or android
 
 ## Instalação
 
