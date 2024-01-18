@@ -7,3 +7,4 @@ export { default as DsLink } from './link';
 export { default as DsStatusBar } from './status-bar';
 export { default as DsText } from './text';
 export { default as DsModal } from './modal';
+export { default as DsCarousel } from './carousel';
