@@ -1,8 +1,11 @@
 import { ReactNode } from 'react';
+
 import { DsBoxType } from '../box/type';
 
-export type DsCarouselTypes = {
+export interface DsCarouselTypes extends DsBoxType {
     children: ReactNode[];
-    showDots?: boolean;
-    time?: number;
-} & DsBoxType;
+    showArrows: boolean;
+    showDots: boolean;
+    autoPlay?: boolean;
+    interval?: number;
+}

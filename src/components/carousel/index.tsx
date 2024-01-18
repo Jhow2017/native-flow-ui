@@ -1,90 +1,102 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { FlatList, Dimensions, TouchableOpacity } from 'react-native';
-import Animated, { Layout, FadeInLeft, FadeOutRight } from 'react-native-reanimated';
+import React, { useEffect, useRef, useState } from 'react';
+import { ScrollView, TouchableOpacity, Dimensions } from 'react-native';
 
+// ds internal
 import DsBox from '../box';
+import DsIcon from '../icon';
 
-// types
+const { width } = Dimensions.get('window');
+
 import { DsCarouselTypes } from './type';
 
 const DsCarousel: React.FC<DsCarouselTypes> = (props) => {
-    const { children, showDots = false, time = 3000, ...attr } = props;
-    const [activeIndex, setActiveIndex] = useState<number>(0);
-    const FlatlistRef = useRef<FlatList>(null);
+    const { children, showArrows, showDots, autoPlay = false, interval = 3000, ...attr } = props;
 
-    const handleDotPress = (index: number) => {
-        setActiveIndex(index);
-        FlatlistRef.current?.scrollToIndex({
-            index: index,
-            animated: true
-        });
-    };
-
-    const onViewableItemsChanged = useRef(({ viewableItems }: { viewableItems: Array<{ index: number | null }> }) => {
-        const firstItem = viewableItems.find((item) => item.index !== null);
-        if (firstItem && firstItem.index !== null) {
-            setActiveIndex(firstItem.index);
-        }
-    }).current;
-
-    const viewabilityConfig = useRef({
-        itemVisiblePercentThreshold: 50
-    }).current;
+    const timerRef = useRef<any>(null);
+    const scrollViewRef = useRef<ScrollView>(null);
+    const [currentSlide, setCurrentSlide] = useState(0);
 
     useEffect(() => {
-        const timerId = setTimeout(() => {
-            const nextIndex = activeIndex === children.length - 1 ? 0 : activeIndex + 1;
-            FlatlistRef.current?.scrollToIndex({
-                index: nextIndex,
-                animated: true
-            });
-            setActiveIndex(nextIndex);
-        }, time ?? 3000);
+        if (autoPlay) {
+            timerRef.current = setInterval(() => {
+                const nextSlide = (currentSlide + 1) % children.length;
+                setCurrentSlide(nextSlide);
+            }, interval);
+        }
 
-        return () => clearTimeout(timerId);
-    }, [activeIndex, children.length]);
+        return () => {
+            if (timerRef.current) {
+                clearInterval(timerRef.current);
+            }
+        };
+    }, [autoPlay, interval, currentSlide, children.length]);
+
+    useEffect(() => {
+        scrollViewRef.current?.scrollTo({
+            x: width * currentSlide,
+            animated: true
+        });
+    }, [currentSlide]);
+
+    const handleArrowClick = (direction: string) => {
+        const newSlide = direction === 'left' ? (currentSlide - 1 + children.length) % children.length : (currentSlide + 1) % children.length;
+        setCurrentSlide(newSlide);
+    };
+
+    const handleScroll = (event: { nativeEvent: { contentOffset: { x: any } } }) => {
+        const contentOffsetX = event.nativeEvent.contentOffset.x;
+        const newCurrentSlide = Math.round(contentOffsetX / width);
+        setCurrentSlide(newCurrentSlide);
+    };
 
     return (
-        <DsBox alignItems="center" gap={24} marginVertical={16} {...attr}>
-            <FlatList
-                ref={FlatlistRef}
-                data={children}
-                renderItem={({ item }) => (
-                    <DsBox width={Dimensions.get('screen').width * 0.8} alignItems={'center'} height={'auto'} marginHorizontal={40}>
-                        {item}
+        <DsBox position={'relative'} {...attr}>
+            <ScrollView horizontal pagingEnabled showsHorizontalScrollIndicator={false} ref={scrollViewRef} scrollEventThrottle={16} onMomentumScrollEnd={handleScroll}>
+                {children.map((child, index) => (
+                    <DsBox key={index} width={width} flex={1} justifyContent={'center'} alignItems={'center'}>
+                        {child}
                     </DsBox>
-                )}
-                keyExtractor={(_, index) => String(index)}
-                pagingEnabled
-                horizontal
-                showsHorizontalScrollIndicator={false}
-                viewabilityConfig={viewabilityConfig}
-                onViewableItemsChanged={onViewableItemsChanged}
-            />
+                ))}
+            </ScrollView>
+
+            {showArrows && (
+                <DsBox flexDirection={'row'} position={'absolute'} top={'50%'} width={'100%'} justifyContent={'space-between'} paddingHorizontal={10}>
+                    {['left', 'right'].map((direction) => (
+                        <DsIcon
+                            icon={direction === 'left' ? 'close' : 'close'}
+                            color="#fff"
+                            key={direction}
+                            backgroundColor={'rgba(0, 0, 0, 0.6)'}
+                            padding={10}
+                            style={{
+                                borderRadius: 30
+                            }}
+                            onPress={() => handleArrowClick(direction)}
+                        />
+                    ))}
+                </DsBox>
+            )}
 
             {showDots && (
-                <FlatList
-                    data={children}
-                    renderItem={({ index }) => (
-                        <TouchableOpacity onPress={() => handleDotPress(index)}>
-                            <Animated.View
-                                layout={Layout}
-                                entering={FadeInLeft}
-                                exiting={FadeOutRight}
-                                style={{
-                                    width: activeIndex === index ? 24 : 14,
-                                    height: 14,
-                                    borderRadius: 25,
-                                    backgroundColor: activeIndex === index ? 'black' : 'gray',
-                                    marginHorizontal: 4
-                                }}
-                            />
-                        </TouchableOpacity>
-                    )}
-                    keyExtractor={(_, index) => String(index)}
-                    horizontal
-                    scrollEnabled={false}
-                />
+                <DsBox flexDirection={'row'} justifyContent={'center'} position={'absolute'} bottom={15} width={'100%'}>
+                    {children.map((item, index) => (
+                        <TouchableOpacity
+                            key={index}
+                            style={[
+                                {
+                                    height: 16,
+                                    width: 16,
+                                    borderRadius: 12,
+                                    marginHorizontal: 6,
+                                    borderColor: 'transparent',
+                                    borderWidth: 1,
+                                    backgroundColor: index === currentSlide ? 'blue' : 'grey'
+                                }
+                            ]}
+                            onPress={() => setCurrentSlide(index)}
+                        />
+                    ))}
+                </DsBox>
             )}
         </DsBox>
     );
