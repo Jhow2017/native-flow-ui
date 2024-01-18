@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { ReactNode, memo, useEffect, useRef, useState } from 'react';
 import { ScrollView, TouchableOpacity, Dimensions } from 'react-native';
 
 // ds internal
@@ -8,6 +8,16 @@ import DsIcon from '../icon';
 const { width } = Dimensions.get('window');
 
 import { DsCarouselTypes } from './type';
+
+type DsCarouselSlideProps = {
+    child: ReactNode;
+};
+
+const DsCarouselSlide = memo<DsCarouselSlideProps>(({ child }) => (
+    <DsBox width={width} flex={1} justifyContent={'center'} alignItems={'center'}>
+        {child}
+    </DsBox>
+));
 
 const DsCarousel: React.FC<DsCarouselTypes> = (props) => {
     const { children, showArrows, showDots, autoPlay = false, interval = 3000, ...attr } = props;
@@ -19,8 +29,7 @@ const DsCarousel: React.FC<DsCarouselTypes> = (props) => {
     useEffect(() => {
         if (autoPlay) {
             timerRef.current = setInterval(() => {
-                const nextSlide = (currentSlide + 1) % children.length;
-                setCurrentSlide(nextSlide);
+                setCurrentSlide((prevSlide) => (prevSlide + 1) % children.length);
             }, interval);
         }
 
@@ -29,7 +38,7 @@ const DsCarousel: React.FC<DsCarouselTypes> = (props) => {
                 clearInterval(timerRef.current);
             }
         };
-    }, [autoPlay, interval, currentSlide, children.length]);
+    }, [autoPlay, interval, children.length]);
 
     useEffect(() => {
         scrollViewRef.current?.scrollTo({
@@ -53,9 +62,7 @@ const DsCarousel: React.FC<DsCarouselTypes> = (props) => {
         <DsBox position={'relative'} {...attr}>
             <ScrollView horizontal pagingEnabled showsHorizontalScrollIndicator={false} ref={scrollViewRef} scrollEventThrottle={16} onMomentumScrollEnd={handleScroll}>
                 {children.map((child, index) => (
-                    <DsBox key={index} width={width} flex={1} justifyContent={'center'} alignItems={'center'}>
-                        {child}
-                    </DsBox>
+                    <DsCarouselSlide child={child} key={index} />
                 ))}
             </ScrollView>
 
