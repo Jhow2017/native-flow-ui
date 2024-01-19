@@ -8,7 +8,16 @@ import { BreakpointValue } from '../../core/types/breakpointValue';
 type SizeButtonType = 'small' | 'medium' | 'large' | 'xlarge';
 
 export type DsButtonType = {
-    variant: 'primary' | 'secondary' | 'tertiary' | 'quaternary' | 'primary-dark' | 'secondary-dark' | 'tertiary-dark' | 'quaternary-dark' | 'default';
+    variant:
+        | 'primary'
+        | 'secondary'
+        | 'tertiary'
+        | 'quaternary'
+        | 'primary-dark'
+        | 'secondary-dark'
+        | 'tertiary-dark'
+        | 'quaternary-dark'
+        | 'default';
     size?: BreakpointValue<SizeButtonType>;
     icon?: IconsType;
     iconPosition?: 'left' | 'right';

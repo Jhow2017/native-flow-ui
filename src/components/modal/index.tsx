@@ -47,7 +47,16 @@ const DsModal: React.FC<DsModalTypes> = (props) => {
                         }
                     }}
                 >
-                    <DsBox justifyContent="space-between" position="absolute" backgroundColor="#fff" height="auto" borderRadius={24} padding={24} marginHorizontal={12} {...(attr as DsBoxType)}>
+                    <DsBox
+                        justifyContent="space-between"
+                        position="absolute"
+                        backgroundColor="#fff"
+                        height="auto"
+                        borderRadius={24}
+                        padding={24}
+                        marginHorizontal={12}
+                        {...(attr as DsBoxType)}
+                    >
                         <DsBox flex={1}>{children}</DsBox>
 
                         {onClose && (

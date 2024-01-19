@@ -9,4 +9,15 @@ import { BaseViewTypesProps } from './view';
 import { BaseButtonTypesProps } from './icon';
 import { BreakpointValue } from './breakpointValue';
 
-export { BaseFlexTypes, BaseImageStyles, BaseTextTypesProps, BaseViewTypesProps, Color, BaseInputTypes, BaseButtonTypesProps, FontFamily, BaseThemeTypes, BreakpointValue };
+export {
+    BaseFlexTypes,
+    BaseImageStyles,
+    BaseTextTypesProps,
+    BaseViewTypesProps,
+    Color,
+    BaseInputTypes,
+    BaseButtonTypesProps,
+    FontFamily,
+    BaseThemeTypes,
+    BreakpointValue
+};

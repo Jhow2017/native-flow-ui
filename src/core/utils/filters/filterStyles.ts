@@ -19,7 +19,11 @@ const isWidthInRange = (range: string, screenWidth: number): boolean => {
     }
     return false;
 };
-const createAndFilterStyles = (attr: any, currentBreakpoint: BreakpointKeys, customCssValues?: string[]): any => {
+const createAndFilterStyles = (
+    attr: any,
+    currentBreakpoint: BreakpointKeys,
+    customCssValues?: string[]
+): any => {
     const screenWidth = Dimensions.get('window').width;
     const cssValuesToUse = customCssValues || defaultCssValue;
     let filteredStyles: Style = {};

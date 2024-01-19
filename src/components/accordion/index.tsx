@@ -15,7 +15,8 @@ const DsAccordian: React.FC<DsAccordionTypes> = (props) => {
 
     useEffect(() => {
         if (Platform.OS === 'android') {
-            UIManager.setLayoutAnimationEnabledExperimental && UIManager.setLayoutAnimationEnabledExperimental(true);
+            UIManager.setLayoutAnimationEnabledExperimental &&
+                UIManager.setLayoutAnimationEnabledExperimental(true);
         }
     }, []);
 
@@ -40,7 +41,12 @@ const DsAccordian: React.FC<DsAccordionTypes> = (props) => {
                 <DsText size="medium" color={'#fff'} fontWeight="900" {...titleStyle}>
                     {title}
                 </DsText>
-                <DsIcon icon={expanded ? 'close' : 'close'} size={'small'} color={'#fff'} onPress={toggleExpand} />
+                <DsIcon
+                    icon={expanded ? 'close' : 'close'}
+                    size={'small'}
+                    color={'#fff'}
+                    onPress={toggleExpand}
+                />
             </ComponentMounter>
 
             <DsBox height={1} color={'#fff'} width="100%" />

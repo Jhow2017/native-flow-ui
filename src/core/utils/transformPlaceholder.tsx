@@ -1,6 +1,9 @@
 import { TextStyle } from 'react-native';
 
-export const transformPlaceholder = (text: string | undefined, transform: TextStyle['textTransform']) => {
+export const transformPlaceholder = (
+    text: string | undefined,
+    transform: TextStyle['textTransform']
+) => {
     if (!text) return text;
 
     switch (transform) {

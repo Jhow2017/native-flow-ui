@@ -20,7 +20,13 @@ const DsText: React.FC<DsTextTypes> = (props) => {
     const fontSize = fontSizeMapping[size || 'medium'] || 16;
 
     return (
-        <ComponentMounter as="text" {...attr} style={attr?.style} fontWeight={attr?.fontWeight ?? variant === 'bold' ? 'bold' : 'normal'} fontSize={attr?.fontSize ?? fontSize}>
+        <ComponentMounter
+            as="text"
+            {...attr}
+            style={attr?.style}
+            fontWeight={attr?.fontWeight ?? variant === 'bold' ? 'bold' : 'normal'}
+            fontSize={attr?.fontSize ?? fontSize}
+        >
             {children}
         </ComponentMounter>
     );

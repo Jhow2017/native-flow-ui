@@ -25,7 +25,13 @@ const DsIcon: React.FC<DsIconType> = (props) => {
         <ComponentMounter as="button" {...attr} style={[attr?.style]}>
             <IconComponent size={iconSize as any} color={iconColor} />
             {children && (
-                <DsText color={'#DADADA'} fontSize={17} fontWeight="700" textTransform={'capitalize'} {...stylesText}>
+                <DsText
+                    color={'#DADADA'}
+                    fontSize={17}
+                    fontWeight="700"
+                    textTransform={'capitalize'}
+                    {...stylesText}
+                >
                     {children}
                 </DsText>
             )}

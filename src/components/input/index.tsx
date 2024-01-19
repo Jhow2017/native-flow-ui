@@ -16,7 +16,8 @@ import ComponentMounter from '../../core/component-mounter';
 
 const DsInput = forwardRef<TextInput, DsInputProps>(({ type, margin, padding, ...props }, ref) => {
     const { children, textTransform, placeholder, error, ...attr } = props;
-    const { color, fontSize, fontStyle, fontWeight, fontFamily } = (attr.style as DsInputProps) || {};
+    const { color, fontSize, fontStyle, fontWeight, fontFamily } =
+        (attr.style as DsInputProps) || {};
 
     // hook
     const currentBreakpoint = useBreakpoint();
@@ -29,7 +30,12 @@ const DsInput = forwardRef<TextInput, DsInputProps>(({ type, margin, padding, ..
     const filteredStyles = filterStyles(props, currentBreakpoint, [...cssInputTextOnlyPropsValue]);
 
     return (
-        <DsFlex flexDirection={'column'} alignItems={'flex-start'} margin={margin} padding={padding}>
+        <DsFlex
+            flexDirection={'column'}
+            alignItems={'flex-start'}
+            margin={margin}
+            padding={padding}
+        >
             <ComponentMounter
                 position="relative"
                 alignItems={'center'}
@@ -58,15 +64,33 @@ const DsInput = forwardRef<TextInput, DsInputProps>(({ type, margin, padding, ..
                                 fontSize: fontSize || styleFilterInput?.fontSize || 16,
                                 fontStyle: fontStyle || styleFilterInput?.fontStyle || 'normal',
                                 fontWeight: fontWeight || styleFilterInput?.fontWeight || 'normal',
-                                fontFamily: fontFamily || styleFilterInput?.fontFamily || 'Inter_400Regular',
+                                fontFamily:
+                                    fontFamily ||
+                                    styleFilterInput?.fontFamily ||
+                                    'Inter_400Regular',
                                 lineHeight: 0
                             }
                         ]}
                     />
 
-                    {type === 'search' && <DsIcon icon={'search'} position="absolute" size={'small'} right={30} color={'#fff'} />}
+                    {type === 'search' && (
+                        <DsIcon
+                            icon={'search'}
+                            position="absolute"
+                            size={'small'}
+                            right={30}
+                            color={'#fff'}
+                        />
+                    )}
                     {type === 'password' && (
-                        <DsIcon icon={showPassword ? 'eye-show' : 'eye-hide'} position="absolute" size={'small'} right={30} color={'#5B5B5B'} onPress={() => setShowPassword((prev) => !prev)} />
+                        <DsIcon
+                            icon={showPassword ? 'eye-show' : 'eye-hide'}
+                            position="absolute"
+                            size={'small'}
+                            right={30}
+                            color={'#5B5B5B'}
+                            onPress={() => setShowPassword((prev) => !prev)}
+                        />
                     )}
                 </DsFlex>
             </ComponentMounter>

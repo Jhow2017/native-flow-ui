@@ -48,7 +48,10 @@ const DsCarousel: React.FC<DsCarouselTypes> = (props) => {
     }, [currentSlide]);
 
     const handleArrowClick = (direction: string) => {
-        const newSlide = direction === 'left' ? (currentSlide - 1 + children.length) % children.length : (currentSlide + 1) % children.length;
+        const newSlide =
+            direction === 'left'
+                ? (currentSlide - 1 + children.length) % children.length
+                : (currentSlide + 1) % children.length;
         setCurrentSlide(newSlide);
     };
 
@@ -60,14 +63,28 @@ const DsCarousel: React.FC<DsCarouselTypes> = (props) => {
 
     return (
         <DsBox position={'relative'} {...attr}>
-            <ScrollView horizontal pagingEnabled showsHorizontalScrollIndicator={false} ref={scrollViewRef} scrollEventThrottle={16} onMomentumScrollEnd={handleScroll}>
+            <ScrollView
+                horizontal
+                pagingEnabled
+                showsHorizontalScrollIndicator={false}
+                ref={scrollViewRef}
+                scrollEventThrottle={16}
+                onMomentumScrollEnd={handleScroll}
+            >
                 {children.map((child, index) => (
                     <DsCarouselSlide child={child} key={index} />
                 ))}
             </ScrollView>
 
             {showArrows && (
-                <DsBox flexDirection={'row'} position={'absolute'} top={'50%'} width={'100%'} justifyContent={'space-between'} paddingHorizontal={10}>
+                <DsBox
+                    flexDirection={'row'}
+                    position={'absolute'}
+                    top={'50%'}
+                    width={'100%'}
+                    justifyContent={'space-between'}
+                    paddingHorizontal={10}
+                >
                     {['left', 'right'].map((direction) => (
                         <DsIcon
                             icon={direction === 'left' ? 'close' : 'close'}
@@ -85,7 +102,13 @@ const DsCarousel: React.FC<DsCarouselTypes> = (props) => {
             )}
 
             {showDots && (
-                <DsBox flexDirection={'row'} justifyContent={'center'} position={'absolute'} bottom={15} width={'100%'}>
+                <DsBox
+                    flexDirection={'row'}
+                    justifyContent={'center'}
+                    position={'absolute'}
+                    bottom={15}
+                    width={'100%'}
+                >
                     {children.map((item, index) => (
                         <TouchableOpacity
                             key={index}

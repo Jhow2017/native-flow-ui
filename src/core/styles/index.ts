@@ -17,7 +17,8 @@ type StyledComponentType = {
     //input: React.ComponentType<TextInputProps & BaseStyleViewProps>;
 };
 
-const applyCustomStyles = (styleProps: BaseStyleViewProps) => (styleProps._css ? generateCustomCss(styleProps._css) : '');
+const applyCustomStyles = (styleProps: BaseStyleViewProps) =>
+    styleProps._css ? generateCustomCss(styleProps._css) : '';
 
 export const StyledComponents: StyledComponentType = {
     view: styled.View`

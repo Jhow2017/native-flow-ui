@@ -1,4 +1,8 @@
-export default function useDebounce<F extends (...args: any[]) => void>(func: F, wait: number, immediate: boolean = false): ((...args: Parameters<F>) => void) & { cancel: () => void } {
+export default function useDebounce<F extends (...args: any[]) => void>(
+    func: F,
+    wait: number,
+    immediate: boolean = false
+): ((...args: Parameters<F>) => void) & { cancel: () => void } {
     let timeout: NodeJS.Timeout | null = null;
 
     const debouncedFunction = (...args: Parameters<F>) => {

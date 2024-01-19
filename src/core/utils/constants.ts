@@ -126,7 +126,9 @@ export const cssValue = [
     'textTransform',
     'userSelect',
     'verticalAlign',
-    'writingDirection'
+    'writingDirection',
+
+    'boxShadow'
 ];
 
 export const cssTextStylesAndPropsValue = [

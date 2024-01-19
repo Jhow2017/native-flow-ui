@@ -7,7 +7,10 @@ import SvgComponent from '../../SvgComponent';
 export function EyeShowIcon({ size, color }: IconProps) {
     return (
         <SvgComponent width={size} height={size} viewBox="0 0 24 24" fill="none">
-            <Path fill={color || '#fff'} d="M9.75 12a2.25 2.25 0 1 1 4.5 0 2.25 2.25 0 0 1-4.5 0Z" />
+            <Path
+                fill={color || '#fff'}
+                d="M9.75 12a2.25 2.25 0 1 1 4.5 0 2.25 2.25 0 0 1-4.5 0Z"
+            />
             <Path
                 fill={color || '#fff'}
                 fillRule="evenodd"

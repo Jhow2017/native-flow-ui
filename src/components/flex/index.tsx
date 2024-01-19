@@ -10,7 +10,11 @@ const DsFlex: React.FC<DsFlexType> = (props) => {
     const { children, ...attr } = props;
 
     return (
-        <ComponentMounter {...attr} style={[attr.style]} flexDirection={attr?.flexDirection ?? 'row'}>
+        <ComponentMounter
+            {...attr}
+            style={[attr.style]}
+            flexDirection={attr?.flexDirection ?? 'row'}
+        >
             {children}
         </ComponentMounter>
     );

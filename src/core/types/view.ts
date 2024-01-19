@@ -23,4 +23,5 @@ export type BaseViewTypesProps = ViewStyleProps &
     BaseThemeTypes & {
         _platform?: (platform: typeof Platform) => ViewStyle;
         _css?: BreakpointValue<string>;
+        boxShadow?: BreakpointValue<string>;
     };
