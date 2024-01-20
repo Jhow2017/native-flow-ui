@@ -1,9 +1,11 @@
+import { Platform } from 'react-native';
 import { hexToRgba } from './hexToRgba';
 
-const MAX_SHADOW_RADIUS = 20; // Defina um valor máximo para o raio da sombra
+const MAX_SHADOW_RADIUS = 20;
 
 export const parseBoxShadow = (boxShadow: string) => {
-    const boxShadowPattern = /(-?\d+px) (-?\d+px) (\d+px) ([^ ]+)(?:, (.*))?/;
+    const boxShadowPattern =
+        /(-?\d+px)\s*(-?\d+px)\s*(\d+px)\s*(rgba\((\d+), (\d+), (\d+), (\d*\.?\d+)\)|#[\da-fA-F]{3,6}|\w+)/;
 
     if (!boxShadowPattern.test(boxShadow)) {
         console.warn("Box shadow format is not valid. Expected format: 'Xpx Ypx Zpx Color'");
@@ -18,20 +20,23 @@ export const parseBoxShadow = (boxShadow: string) => {
             height: parseFloat(parts[2])
         };
         const shadowRadius = Math.min(parseFloat(parts[3]), MAX_SHADOW_RADIUS);
-        let shadowColor;
+        let shadowColor = parts[4];
 
-        if (parts[4].startsWith('#')) {
-            shadowColor = hexToRgba(parts[4]); // Converte hexadecimal para RGBA
-        } else {
-            shadowColor = parts[4]; // Assume que já está em formato válido
+        if (shadowColor.startsWith('#')) {
+            shadowColor = hexToRgba(shadowColor);
+        } else if (shadowColor.startsWith('rgba')) {
+            const rgbaParts = shadowColor.match(/rgba\((\d+), (\d+), (\d+), (\d*\.?\d+)\)/);
+            if (rgbaParts && Platform.OS === 'android') {
+                shadowColor = `rgba(${rgbaParts[1]}, ${rgbaParts[2]}, ${rgbaParts[3]}, 1)`;
+            }
         }
 
         return {
             shadowColor,
             shadowOffset,
             shadowRadius,
-            shadowOpacity: 1, // Ajuste conforme necessário
-            elevation: shadowRadius // Ajuste para Android
+            shadowOpacity: 1,
+            elevation: shadowRadius
         };
     }
 

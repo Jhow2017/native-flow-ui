@@ -4,7 +4,7 @@ type CSSTextValue = (typeof cssTextStylesAndPropsValue)[number];
 
 type TextStylesProps = Partial<Record<CSSTextValue, any>>;
 
-export default function filterTextStyles(props: Record<string, any>): TextStylesProps {
+export const filterTextStyles = (props: Record<string, any>): TextStylesProps => {
     const filteredProps: TextStylesProps = {};
 
     Object.keys(props).forEach((key) => {
@@ -14,4 +14,4 @@ export default function filterTextStyles(props: Record<string, any>): TextStyles
     });
 
     return filteredProps;
-}
+};

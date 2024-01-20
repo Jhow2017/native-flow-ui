@@ -2,7 +2,7 @@ import styled from 'styled-components/native';
 import { ViewProps, TextProps, TouchableOpacityProps } from 'react-native';
 import { Link } from 'expo-router';
 
-import generateCustomCss from '../utils/generateCustomCss';
+import { generateCustomCss } from '../utils';
 import { BreakpointValue } from '../types/breakpointValue';
 
 interface BaseStyleViewProps {

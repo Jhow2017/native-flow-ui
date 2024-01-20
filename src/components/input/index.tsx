@@ -2,9 +2,13 @@ import React, { useState, forwardRef } from 'react';
 import { TextInput, TextInputProps } from 'react-native';
 
 //utils
-import { transformPlaceholder } from '../../core/utils/transformPlaceholder';
-import { cssInputTextOnlyPropsValue } from '../../core/utils/constants';
-import filterStyles from '../../core/utils/filters/filterStyles';
+import {
+    transformPlaceholder,
+    createAndFilterStyles,
+    cssInputTextOnlyPropsValue
+} from '../../core/utils';
+
+// hooks
 import useBreakpoint from '../../hooks/useBreakpoint';
 
 //types
@@ -26,8 +30,10 @@ const DsInput = forwardRef<TextInput, DsInputProps>(({ type, margin, padding, ..
     const [showPassword, setShowPassword] = useState<boolean>(false);
 
     // filters
-    const styleFilterInput = filterStyles(attr, currentBreakpoint);
-    const filteredStyles = filterStyles(props, currentBreakpoint, [...cssInputTextOnlyPropsValue]);
+    const styleFilterInput = createAndFilterStyles(attr, currentBreakpoint);
+    const filteredStyles = createAndFilterStyles(props, currentBreakpoint, [
+        ...cssInputTextOnlyPropsValue
+    ]);
 
     return (
         <DsFlex

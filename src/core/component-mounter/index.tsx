@@ -1,11 +1,11 @@
 import React from 'react';
 import { Platform } from 'react-native';
 
-// utils/hooks
+// hooks
 import useBreakpoint from '../../hooks/useBreakpoint';
-import filterStyles from '../utils/filters/filterStyles';
-import { parseBoxShadow } from '../utils/parseBoxShadow';
-import filterTextStyles from '../utils/filters/filterTextStyles';
+
+// utils
+import { parseBoxShadow, createAndFilterStyles, filterTextStyles } from '../utils';
 
 // types
 import type { ComponentMounterType } from './types';
@@ -21,13 +21,11 @@ const ComponentMounter: React.FC<ComponentMounterType> = (props) => {
 
     // filters
     const textPropsFilter = filterTextStyles(attr);
-    const filteredFlexStyle = filterStyles(props, currentBreakpoint);
+    const filteredFlexStyle = createAndFilterStyles(props, currentBreakpoint);
+    const { boxShadow } = filteredFlexStyle;
 
     const platformStyles = _platform ? _platform(Platform) : {};
-
-    const shadowStyle = filteredFlexStyle?.boxShadow
-        ? parseBoxShadow(filteredFlexStyle?.boxShadow)
-        : {};
+    const shadowStyle = boxShadow ? parseBoxShadow(boxShadow) : {};
     const additionalStyles: any = attr.style instanceof Array ? attr.style : [attr.style];
 
     const BaseStyleView = StyledComponents[as] || StyledComponents.view;

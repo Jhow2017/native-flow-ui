@@ -8,7 +8,7 @@ import type { BreakpointValue } from '../types/breakpointValue';
 type Breakpoints = typeof breakpoints;
 type BreakpointKeys = keyof Breakpoints;
 
-const generateCustomCss = (breakpointCss: BreakpointValue<string>): string => {
+export const generateCustomCss = (breakpointCss: BreakpointValue<string>): string => {
     // If breakpointCss is a string, returns directly
     if (typeof breakpointCss === 'string') {
         return breakpointCss;
@@ -35,5 +35,3 @@ const generateCustomCss = (breakpointCss: BreakpointValue<string>): string => {
 
     return appliedStyles;
 };
-
-export default generateCustomCss;

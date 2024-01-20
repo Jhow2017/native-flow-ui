@@ -11,7 +11,7 @@ import { buttonConfig } from './config-variants';
 import { useResolvedBreakpointValue } from '../../hooks';
 
 // utils
-import filterTextStyles from '../../core/utils/filters/filterTextStyles';
+import { filterTextStyles } from '../../core/utils';
 
 // componentMounter
 import ComponentMounter from '../../core/component-mounter';
