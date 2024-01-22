@@ -24,7 +24,7 @@ Instale my-project com npm
     
 ## Screenshots
 
-![App Screenshot]([https://media.licdn.com/dms/image/D4D2DAQHAqna9vMoB6A/profile-treasury-image-shrink_1920_1920/0/1705951033828?e=1706558400&v=beta&t=cbCkmqWgX2GyTLFxtzkgZ13oq3BnPNj0CHtxa4WofBM])
+![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
 
 
 ## Uso/Exemplos
