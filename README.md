@@ -66,7 +66,7 @@ export default function Box() {
 
 ## Stack utilizada
 
-**Front-end:** React, Expo Router V2 (Link),expo-status-bar, TypeScript, styled-component e moti.
+**Front-end:** React, React-Native, Expo Router V2 (Link),expo-status-bar, TypeScript, styled-component e moti.
 
 
 ## Autores
