@@ -24,7 +24,7 @@ Instale my-project com npm
     
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![App Screenshot](https://raw.githubusercontent.com/Jhow2017/native-flow-ui/main/assets/code.png)
 
 
 ## Uso/Exemplos
