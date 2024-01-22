@@ -5,7 +5,7 @@ import { LayoutAnimation, Platform, UIManager } from 'react-native';
 import Box from '../box';
 import Text from '../text';
 import Icon from '../icon';
-import ComponentMounter from '../../core/base-component';
+import BaseComponent from '../../core/base-component';
 
 import { AccordionTypes } from './types';
 const Accordian: React.FC<AccordionTypes> = (props) => {
@@ -27,7 +27,7 @@ const Accordian: React.FC<AccordionTypes> = (props) => {
 
     return (
         <Box {...attr}>
-            <ComponentMounter
+            <BaseComponent
                 as="button"
                 justifyContent={'space-between'}
                 alignItems={'center'}
@@ -47,7 +47,7 @@ const Accordian: React.FC<AccordionTypes> = (props) => {
                     color={'#fff'}
                     onPress={toggleExpand}
                 />
-            </ComponentMounter>
+            </BaseComponent>
 
             <Box height={1} color={'#fff'} width="100%" />
 

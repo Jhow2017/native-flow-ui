@@ -1,7 +1,7 @@
 import React from 'react';
 
 //
-import ComponentMounter from '../../core/base-component';
+import BaseComponent from '../../core/base-component';
 
 // types
 import { TextTypes } from './types';
@@ -20,7 +20,7 @@ const Text: React.FC<TextTypes> = (props) => {
     const fontSize = fontSizeMapping[size || 'medium'] || 16;
 
     return (
-        <ComponentMounter
+        <BaseComponent
             as="text"
             {...attr}
             style={attr?.style}
@@ -28,7 +28,7 @@ const Text: React.FC<TextTypes> = (props) => {
             fontSize={attr?.fontSize ?? fontSize}
         >
             {children}
-        </ComponentMounter>
+        </BaseComponent>
     );
 };
 
