@@ -12,16 +12,15 @@ import {
 import useBreakpoint from '../../hooks/useBreakpoint';
 
 //types
-import { DsInputProps } from './type';
+import { InputProps } from './type';
 
 //@ds
 import { Flex, Icon, Text } from '../../components';
 import BaseComponent from '../../core/base-component';
 
-const Input = forwardRef<TextInput, DsInputProps>(({ type, margin, padding, ...props }, ref) => {
+const Input = forwardRef<TextInput, InputProps>(({ type, margin, padding, ...props }, ref) => {
     const { children, textTransform, placeholder, error, ...attr } = props;
-    const { color, fontSize, fontStyle, fontWeight, fontFamily } =
-        (attr.style as DsInputProps) || {};
+    const { color, fontSize, fontStyle, fontWeight, fontFamily } = (attr.style as InputProps) || {};
 
     // hook
     const currentBreakpoint = useBreakpoint();

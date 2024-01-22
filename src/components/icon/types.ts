@@ -60,7 +60,7 @@ export type SvgComponentProps = {
 } & IconProps &
     SvgProps;
 
-export interface DsIconType extends BaseButtonTypesProps, TouchableOpacityProps {
+export interface IconType extends BaseButtonTypesProps, TouchableOpacityProps {
     children?: ReactNode;
     icon: IconsType;
     size?: SizeIconTypes;

@@ -2,7 +2,7 @@ import { BaseInputTypes, BaseViewTypesProps, FontFamily } from '../../core/types
 
 type InputTypes = 'text' | 'search' | 'date' | 'password' | 'number';
 
-export type DsInputProps = BaseViewTypesProps &
+export type InputProps = BaseViewTypesProps &
     BaseInputTypes & {
         type: InputTypes;
         TypeInput?: 'flat' | 'outlined';

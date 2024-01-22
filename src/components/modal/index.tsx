@@ -12,7 +12,7 @@ import { useModalAnimation } from '../../hooks';
 // @Ds
 import { Box } from '../../components';
 
-const DsModal: React.FC<ModalTypes> = (props) => {
+const Modal: React.FC<ModalTypes> = (props) => {
     const { visible, onClose, children, animation = 'fade', transition, ...attr } = props;
 
     const modalAnimationState = useModalAnimation(visible, animation);
@@ -85,4 +85,4 @@ const DsModal: React.FC<ModalTypes> = (props) => {
     );
 };
 
-export default DsModal;
+export default Modal;

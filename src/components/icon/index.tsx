@@ -1,7 +1,7 @@
 import React from 'react';
 
 //types external
-import { DsIconType, sizeMapping } from './types';
+import { IconType, sizeMapping } from './types';
 
 // all Icons
 import { ICONS } from './icons';
@@ -10,7 +10,7 @@ import { ICONS } from './icons';
 import { Text } from '../../components';
 import BaseComponent from '../../core/base-component';
 
-const Icon: React.FC<DsIconType> = (props) => {
+const Icon: React.FC<IconType> = (props) => {
     const { fontSize, icon, size = 'small', stylesText, color, children, ...attr } = props;
 
     const IconComponent = ICONS[icon];
