@@ -1,25 +1,25 @@
 import React, { ReactNode, memo, useEffect, useRef, useState } from 'react';
 import { ScrollView, TouchableOpacity, Dimensions } from 'react-native';
 
-// ds internal
-import DsBox from '../box';
-import DsIcon from '../icon';
+//  internal
+import Box from '../box';
+import Icon from '../icon';
 
 const { width } = Dimensions.get('window');
 
-import { DsCarouselTypes } from './type';
+import { CarouselTypes } from './type';
 
-type DsCarouselSlideProps = {
+type CarouselSlideProps = {
     child: ReactNode;
 };
 
-const DsCarouselSlide = memo<DsCarouselSlideProps>(({ child }) => (
-    <DsBox width={width} flex={1} justifyContent={'center'} alignItems={'center'}>
+const CarouselSlide = memo<CarouselSlideProps>(({ child }) => (
+    <Box width={width} flex={1} justifyContent={'center'} alignItems={'center'}>
         {child}
-    </DsBox>
+    </Box>
 ));
 
-const DsCarousel: React.FC<DsCarouselTypes> = (props) => {
+const Carousel: React.FC<CarouselTypes> = (props) => {
     const { children, showArrows, showDots, autoPlay = false, interval = 3000, ...attr } = props;
 
     const timerRef = useRef<any>(null);
@@ -62,7 +62,7 @@ const DsCarousel: React.FC<DsCarouselTypes> = (props) => {
     };
 
     return (
-        <DsBox position={'relative'} {...attr}>
+        <Box position={'relative'} {...attr}>
             <ScrollView
                 horizontal
                 pagingEnabled
@@ -72,12 +72,12 @@ const DsCarousel: React.FC<DsCarouselTypes> = (props) => {
                 onMomentumScrollEnd={handleScroll}
             >
                 {children.map((child, index) => (
-                    <DsCarouselSlide child={child} key={index} />
+                    <CarouselSlide child={child} key={index} />
                 ))}
             </ScrollView>
 
             {showArrows && (
-                <DsBox
+                <Box
                     flexDirection={'row'}
                     position={'absolute'}
                     top={'50%'}
@@ -86,7 +86,7 @@ const DsCarousel: React.FC<DsCarouselTypes> = (props) => {
                     paddingHorizontal={10}
                 >
                     {['left', 'right'].map((direction) => (
-                        <DsIcon
+                        <Icon
                             icon={direction === 'left' ? 'close' : 'close'}
                             color="#fff"
                             key={direction}
@@ -98,11 +98,11 @@ const DsCarousel: React.FC<DsCarouselTypes> = (props) => {
                             onPress={() => handleArrowClick(direction)}
                         />
                     ))}
-                </DsBox>
+                </Box>
             )}
 
             {showDots && (
-                <DsBox
+                <Box
                     flexDirection={'row'}
                     justifyContent={'center'}
                     position={'absolute'}
@@ -126,10 +126,10 @@ const DsCarousel: React.FC<DsCarouselTypes> = (props) => {
                             onPress={() => setCurrentSlide(index)}
                         />
                     ))}
-                </DsBox>
+                </Box>
             )}
-        </DsBox>
+        </Box>
     );
 };
 
-export default DsCarousel;
+export default Carousel;

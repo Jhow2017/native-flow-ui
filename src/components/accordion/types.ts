@@ -1,9 +1,9 @@
-import { DsTextTypes } from '../text/types';
-import { DsBoxType } from '../box/type';
+import { TextTypes } from '../text/types';
+import { BoxType } from '../box/type';
 
-export type DsAccordionTypes = {
+export type AccordionTypes = {
     title: string;
-    titleStyle?: DsTextTypes;
+    titleStyle?: TextTypes;
     content: string;
-    contentStyle?: DsTextTypes;
-} & Omit<DsBoxType, 'children'>;
+    contentStyle?: TextTypes;
+} & Omit<BoxType, 'children'>;

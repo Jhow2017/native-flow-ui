@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
-import { DsBoxType } from '../box/type';
+import { BoxType } from '../box/type';
 
-export type DsShadowBoxType = {
+export type ShadowBoxType = {
     children: ReactNode;
-} & DsBoxType;
+} & BoxType;

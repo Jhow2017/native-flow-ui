@@ -1,12 +1,12 @@
 import React from 'react';
 
 //
-import ComponentMounter from '../../core/component-mounter';
+import ComponentMounter from '../../core/base-component';
 
 // types
-import { DsTextTypes } from './types';
+import { TextTypes } from './types';
 
-const DsText: React.FC<DsTextTypes> = (props) => {
+const Text: React.FC<TextTypes> = (props) => {
     const { children, variant, size, ...attr } = props;
 
     const fontSizeMapping = {
@@ -32,4 +32,4 @@ const DsText: React.FC<DsTextTypes> = (props) => {
     );
 };
 
-export default DsText;
+export default Text;

@@ -4,7 +4,7 @@ import { ReactNode } from 'react';
 import { BaseViewTypesProps } from '../types/view';
 import { StyledComponents } from '../styles';
 
-export interface ComponentMounterType extends BaseViewTypesProps {
+export interface BaseComponentType extends BaseViewTypesProps {
     children: ReactNode;
     as?: keyof typeof StyledComponents;
     href?: string;

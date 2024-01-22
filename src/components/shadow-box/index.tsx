@@ -1,15 +1,15 @@
 import React from 'react';
 
 // ds internal
-import DsBox from '../box';
+import Box from '../box';
 
 // types
-import type { DsShadowBoxType } from './types';
+import type { ShadowBoxType } from './types';
 
-const DsShadowBox: React.FC<DsShadowBoxType> = (props) => {
+const ShadowBox: React.FC<ShadowBoxType> = (props) => {
     const { children, ...attr } = props;
     return (
-        <DsBox
+        <Box
             borderRadius={10}
             padding={{ sm: 24, md: 24, lg: 32 }}
             backgroundColor="#fff"
@@ -17,8 +17,8 @@ const DsShadowBox: React.FC<DsShadowBoxType> = (props) => {
             {...attr}
         >
             {children}
-        </DsBox>
+        </Box>
     );
 };
 
-export default DsShadowBox;
+export default ShadowBox;

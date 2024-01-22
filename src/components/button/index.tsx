@@ -2,7 +2,7 @@ import React from 'react';
 import { ActivityIndicator } from 'react-native';
 
 // types
-import { DsButtonType } from './types';
+import { ButtonType } from './types';
 
 // config variants buttons
 import { buttonConfig } from './config-variants';
@@ -13,14 +13,14 @@ import { useResolvedBreakpointValue } from '../../hooks';
 // utils
 import { filterTextStyles } from '../../core/utils';
 
-// componentMounter
-import ComponentMounter from '../../core/component-mounter';
+// BaseComponent
+import BaseComponent from '../../core/base-component';
 
 // ds
-import DsIcon from '../icon';
-import { DsText, DsFlex } from '../../components/';
+import Icon from '../icon';
+import { Text, Flex } from '../../components/';
 
-const DsButton: React.FC<DsButtonType> = (props) => {
+const Button: React.FC<ButtonType> = (props) => {
     const {
         variant,
         size,
@@ -44,7 +44,7 @@ const DsButton: React.FC<DsButtonType> = (props) => {
     const backgroundColor = buttonConfig.backgroundColors[variant || 'default'];
 
     return (
-        <ComponentMounter
+        <BaseComponent
             as="button"
             disabled={loading || disabled}
             {...attr}
@@ -56,23 +56,23 @@ const DsButton: React.FC<DsButtonType> = (props) => {
             style={[attr.style, buttonConfig.styledBase]}
         >
             {loading && <ActivityIndicator style={loadingIndicatorStyle} />}
-            <DsFlex
+            <Flex
                 flexDirection={iconPosition === 'right' ? 'row-reverse' : 'row'}
                 alignItems="center"
                 justifyContent="center"
                 gap={8}
             >
-                {icon && <DsIcon icon={icon} color={'#fff'} fontSize={sizeConfig.iconFontSize} />}
-                <DsText
+                {icon && <Icon icon={icon} color={'#fff'} fontSize={sizeConfig.iconFontSize} />}
+                <Text
                     color={'#fff'}
                     fontSize={textPropsFilter?.fontSize || sizeConfig.textFontSize}
                     {...textPropsFilter}
                 >
                     {children}
-                </DsText>
-            </DsFlex>
-        </ComponentMounter>
+                </Text>
+            </Flex>
+        </BaseComponent>
     );
 };
 
-export default DsButton;
+export default Button;

@@ -1,12 +1,12 @@
 import React, { forwardRef } from 'react';
 
 // types
-import type { DsLinkRef, DsLinkType } from './types';
+import type { LinkRef, LinkType } from './types';
 
 // componentMounter
-import ComponentMounter from '../../core/component-mounter';
+import ComponentMounter from '../../core/base-component';
 
-const DsLink = forwardRef<DsLinkRef, DsLinkType>((props, ref) => {
+const Link = forwardRef<LinkRef, LinkType>((props, ref) => {
     const { children, ...attr } = props;
 
     return (
@@ -16,4 +16,4 @@ const DsLink = forwardRef<DsLinkRef, DsLinkType>((props, ref) => {
     );
 });
 
-export default DsLink;
+export default Link;

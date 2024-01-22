@@ -15,10 +15,10 @@ import useBreakpoint from '../../hooks/useBreakpoint';
 import { DsInputProps } from './type';
 
 //@ds
-import { DsFlex, DsIcon, DsText } from '../../components';
-import ComponentMounter from '../../core/component-mounter';
+import { Flex, Icon, Text } from '../../components';
+import BaseComponent from '../../core/base-component';
 
-const DsInput = forwardRef<TextInput, DsInputProps>(({ type, margin, padding, ...props }, ref) => {
+const Input = forwardRef<TextInput, DsInputProps>(({ type, margin, padding, ...props }, ref) => {
     const { children, textTransform, placeholder, error, ...attr } = props;
     const { color, fontSize, fontStyle, fontWeight, fontFamily } =
         (attr.style as DsInputProps) || {};
@@ -36,13 +36,8 @@ const DsInput = forwardRef<TextInput, DsInputProps>(({ type, margin, padding, ..
     ]);
 
     return (
-        <DsFlex
-            flexDirection={'column'}
-            alignItems={'flex-start'}
-            margin={margin}
-            padding={padding}
-        >
-            <ComponentMounter
+        <Flex flexDirection={'column'} alignItems={'flex-start'} margin={margin} padding={padding}>
+            <BaseComponent
                 position="relative"
                 alignItems={'center'}
                 justifyContent={'center'}
@@ -54,7 +49,7 @@ const DsInput = forwardRef<TextInput, DsInputProps>(({ type, margin, padding, ..
                 borderColor={attr?.borderColor ?? '#363535'}
                 {...attr}
             >
-                <DsFlex alignItems={'center'}>
+                <Flex alignItems={'center'}>
                     <TextInput
                         {...(filteredStyles as TextInputProps)}
                         ref={ref}
@@ -80,7 +75,7 @@ const DsInput = forwardRef<TextInput, DsInputProps>(({ type, margin, padding, ..
                     />
 
                     {type === 'search' && (
-                        <DsIcon
+                        <Icon
                             icon={'search'}
                             position="absolute"
                             size={'small'}
@@ -89,7 +84,7 @@ const DsInput = forwardRef<TextInput, DsInputProps>(({ type, margin, padding, ..
                         />
                     )}
                     {type === 'password' && (
-                        <DsIcon
+                        <Icon
                             icon={showPassword ? 'eye-show' : 'eye-hide'}
                             position="absolute"
                             size={'small'}
@@ -98,15 +93,15 @@ const DsInput = forwardRef<TextInput, DsInputProps>(({ type, margin, padding, ..
                             onPress={() => setShowPassword((prev) => !prev)}
                         />
                     )}
-                </DsFlex>
-            </ComponentMounter>
+                </Flex>
+            </BaseComponent>
             {error && (
-                <DsText color={'red'} marginTop={12}>
+                <Text color={'red'} marginTop={12}>
                     {error}
-                </DsText>
+                </Text>
             )}
-        </DsFlex>
+        </Flex>
     );
 });
 
-export default DsInput;
+export default Input;

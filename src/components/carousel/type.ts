@@ -1,8 +1,8 @@
 import { ReactNode } from 'react';
 
-import { DsBoxType } from '../box/type';
+import { BoxType } from '../box/type';
 
-export interface DsCarouselTypes extends DsBoxType {
+export interface CarouselTypes extends BoxType {
     children: ReactNode[];
     showArrows: boolean;
     showDots: boolean;

@@ -1,6 +1,6 @@
 import { StatusBarAnimation, StatusBarProps, StatusBarStyle } from 'expo-status-bar';
 
-export interface DsStatusBarProps extends StatusBarProps {
+export interface StatusBarType extends StatusBarProps {
     style: StatusBarStyle;
     setBackgroundColor?: [string, boolean?]; // Cor de fundo e opcionalmente se é animado
     setHidden?: [boolean, StatusBarAnimation?]; // Esconder e opcionalmente a animação

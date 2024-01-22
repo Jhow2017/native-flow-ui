@@ -3,7 +3,7 @@ import type { SvgProps } from 'react-native-svg';
 import { Insets, TouchableOpacityProps } from 'react-native';
 
 // type local
-import { DsTextTypes } from '../text/types';
+import { TextTypes } from '../text/types';
 
 import type { BaseButtonTypesProps } from '../../core/types/icon';
 import { Color } from '../../core/types/color';
@@ -66,5 +66,5 @@ export interface DsIconType extends BaseButtonTypesProps, TouchableOpacityProps 
     size?: SizeIconTypes;
     color?: Color;
     hitSlop?: Insets;
-    stylesText?: DsTextTypes;
+    stylesText?: TextTypes;
 }

@@ -6,7 +6,7 @@ import {
 } from './constants';
 import { hexToRgba } from './hexToRgba';
 import { parseBoxShadow } from './parseBoxShadow';
-import { generateCustomCss } from './generateCustomCss';
+import { generateResponsiveCss } from './generateCustomCss';
 import { transformPlaceholder } from './transformPlaceholder';
 import { createAndFilterStyles } from './filters/createAndFilterStyles';
 import { filterTextStyles } from './filters/filterTextStyles';
@@ -18,7 +18,7 @@ export {
     cssTextStylesAndPropsValue,
     parseBoxShadow,
     hexToRgba,
-    generateCustomCss,
+    generateResponsiveCss as generateCustomCss,
     transformPlaceholder,
     createAndFilterStyles,
     filterTextStyles

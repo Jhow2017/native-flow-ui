@@ -3,16 +3,16 @@ import { MotiView } from 'moti';
 import { Text, TouchableOpacity } from 'react-native';
 
 // type
-import type { DsModalTypes } from './type';
-import type { DsBoxType } from '../box/type';
+import type { ModalTypes } from './type';
+import type { BoxType } from '../box/type';
 
 // hook
 import { useModalAnimation } from '../../hooks';
 
 // @Ds
-import { DsBox } from '../../components';
+import { Box } from '../../components';
 
-const DsModal: React.FC<DsModalTypes> = (props) => {
+const DsModal: React.FC<ModalTypes> = (props) => {
     const { visible, onClose, children, animation = 'fade', transition, ...attr } = props;
 
     const modalAnimationState = useModalAnimation(visible, animation);
@@ -47,7 +47,7 @@ const DsModal: React.FC<DsModalTypes> = (props) => {
                         }
                     }}
                 >
-                    <DsBox
+                    <Box
                         justifyContent="space-between"
                         position="absolute"
                         backgroundColor="#fff"
@@ -55,9 +55,9 @@ const DsModal: React.FC<DsModalTypes> = (props) => {
                         borderRadius={24}
                         padding={24}
                         marginHorizontal={12}
-                        {...(attr as DsBoxType)}
+                        {...(attr as BoxType)}
                     >
-                        <DsBox flex={1}>{children}</DsBox>
+                        <Box flex={1}>{children}</Box>
 
                         {onClose && (
                             <TouchableOpacity
@@ -78,7 +78,7 @@ const DsModal: React.FC<DsModalTypes> = (props) => {
                                 <Text style={{ color: '#fff' }}>Close</Text>
                             </TouchableOpacity>
                         )}
-                    </DsBox>
+                    </Box>
                 </MotiView>
             )}
         </>

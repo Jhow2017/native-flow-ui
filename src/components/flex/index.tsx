@@ -1,23 +1,19 @@
 import React from 'react';
-import ComponentMounter from '../../core/component-mounter';
+import BaseComponent from '../../core/base-component';
 
 // config
 
 // type
-import type { DsFlexType } from './type';
+import type { FlexType } from './type';
 
-const DsFlex: React.FC<DsFlexType> = (props) => {
+const Flex: React.FC<FlexType> = (props) => {
     const { children, ...attr } = props;
 
     return (
-        <ComponentMounter
-            {...attr}
-            style={[attr.style]}
-            flexDirection={attr?.flexDirection ?? 'row'}
-        >
+        <BaseComponent {...attr} style={[attr.style]} flexDirection={attr?.flexDirection ?? 'row'}>
             {children}
-        </ComponentMounter>
+        </BaseComponent>
     );
 };
 
-export default DsFlex;
+export default Flex;

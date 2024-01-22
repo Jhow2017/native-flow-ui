@@ -2,13 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { LayoutAnimation, Platform, UIManager } from 'react-native';
 
 // ds internal
-import DsBox from '../box';
-import DsText from '../text';
-import DsIcon from '../icon';
-import ComponentMounter from '../../core/component-mounter';
+import Box from '../box';
+import Text from '../text';
+import Icon from '../icon';
+import ComponentMounter from '../../core/base-component';
 
-import { DsAccordionTypes } from './types';
-const DsAccordian: React.FC<DsAccordionTypes> = (props) => {
+import { AccordionTypes } from './types';
+const Accordian: React.FC<AccordionTypes> = (props) => {
     const { title, titleStyle, content, contentStyle, ...attr } = props;
 
     const [expanded, setExpanded] = useState(false);
@@ -26,7 +26,7 @@ const DsAccordian: React.FC<DsAccordionTypes> = (props) => {
     };
 
     return (
-        <DsBox {...attr}>
+        <Box {...attr}>
             <ComponentMounter
                 as="button"
                 justifyContent={'space-between'}
@@ -38,10 +38,10 @@ const DsAccordian: React.FC<DsAccordionTypes> = (props) => {
                 backgroundColor={expanded ? '#000000' : '#808080'}
                 onPress={toggleExpand}
             >
-                <DsText size="medium" color={'#fff'} fontWeight="900" {...titleStyle}>
+                <Text size="medium" color={'#fff'} fontWeight="900" {...titleStyle}>
                     {title}
-                </DsText>
-                <DsIcon
+                </Text>
+                <Icon
                     icon={expanded ? 'close' : 'close'}
                     size={'small'}
                     color={'#fff'}
@@ -49,17 +49,17 @@ const DsAccordian: React.FC<DsAccordionTypes> = (props) => {
                 />
             </ComponentMounter>
 
-            <DsBox height={1} color={'#fff'} width="100%" />
+            <Box height={1} color={'#fff'} width="100%" />
 
             {expanded && (
-                <DsBox padding={16} backgroundColor={'#CDCDCD'}>
-                    <DsText color={'#000'} {...contentStyle}>
+                <Box padding={16} backgroundColor={'#CDCDCD'}>
+                    <Text color={'#000'} {...contentStyle}>
                         {content}
-                    </DsText>
-                </DsBox>
+                    </Text>
+                </Box>
             )}
-        </DsBox>
+        </Box>
     );
 };
 
-export default DsAccordian;
+export default Accordian;

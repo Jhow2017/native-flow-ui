@@ -7,10 +7,10 @@ import { DsIconType, sizeMapping } from './types';
 import { ICONS } from './icons';
 
 //components
-import { DsText } from '../../components';
-import ComponentMounter from '../../core/component-mounter';
+import { Text } from '../../components';
+import BaseComponent from '../../core/base-component';
 
-const DsIcon: React.FC<DsIconType> = (props) => {
+const Icon: React.FC<DsIconType> = (props) => {
     const { fontSize, icon, size = 'small', stylesText, color, children, ...attr } = props;
 
     const IconComponent = ICONS[icon];
@@ -22,10 +22,10 @@ const DsIcon: React.FC<DsIconType> = (props) => {
     const iconColor = (color as string) || '#000';
 
     return (
-        <ComponentMounter as="button" {...attr} style={[attr?.style]}>
+        <BaseComponent as="button" {...attr} style={[attr?.style]}>
             <IconComponent size={iconSize as any} color={iconColor} />
             {children && (
-                <DsText
+                <Text
                     color={'#DADADA'}
                     fontSize={17}
                     fontWeight="700"
@@ -33,10 +33,10 @@ const DsIcon: React.FC<DsIconType> = (props) => {
                     {...stylesText}
                 >
                     {children}
-                </DsText>
+                </Text>
             )}
-        </ComponentMounter>
+        </BaseComponent>
     );
 };
 
-export default DsIcon;
+export default Icon;

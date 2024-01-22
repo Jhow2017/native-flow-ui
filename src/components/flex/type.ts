@@ -1,3 +1,3 @@
-import { ComponentMounterType } from '../../core/component-mounter/types';
+import { BaseComponentType } from '../../core/base-component/types';
 
-export type DsFlexType = {} & ComponentMounterType;
+export type FlexType = {} & BaseComponentType;

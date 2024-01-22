@@ -1,13 +1,13 @@
 import React from 'react';
-import ComponentMounter from '../../core/component-mounter';
+import BaseComponent from '../../core/base-component';
 
 // types
-import { DsBoxType } from './type';
+import { BoxType } from './type';
 
-const DsBox: React.FC<DsBoxType> = (props) => {
+const Box: React.FC<BoxType> = (props) => {
     const { children, ...attr } = props;
 
-    return <ComponentMounter {...attr}>{children}</ComponentMounter>;
+    return <BaseComponent {...attr}>{children}</BaseComponent>;
 };
 
-export default DsBox;
+export default Box;

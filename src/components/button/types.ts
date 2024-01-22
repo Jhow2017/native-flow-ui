@@ -2,12 +2,12 @@ import { TouchableOpacityProps } from 'react-native';
 
 // types
 import type { IconsType } from '../icon/types';
-import type { ComponentMounterType } from '../../core/component-mounter/types';
+import type { BaseComponentType } from '../../core/base-component/types';
 import { BreakpointValue } from '../../core/types/breakpointValue';
 
 type SizeButtonType = 'small' | 'medium' | 'large' | 'xlarge';
 
-export type DsButtonType = {
+export type ButtonType = {
     variant:
         | 'primary'
         | 'secondary'
@@ -24,5 +24,5 @@ export type DsButtonType = {
     loading?: boolean;
     theme?: 'light' | 'dark'; // Theme for Dark Mode support
     loadingIndicatorStyle?: any; // Style object for customizing the loading indicator
-} & ComponentMounterType &
+} & BaseComponentType &
     TouchableOpacityProps;

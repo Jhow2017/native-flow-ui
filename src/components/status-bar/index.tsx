@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Platform } from 'react-native';
 
 import {
-    StatusBar,
+    StatusBar as Status,
     setStatusBarBackgroundColor,
     setStatusBarHidden,
     setStatusBarNetworkActivityIndicatorVisible,
@@ -10,9 +10,9 @@ import {
 } from 'expo-status-bar';
 
 // types
-import { DsStatusBarProps } from './types';
+import { StatusBarType } from './types';
 
-const DsStatusBar: React.FC<DsStatusBarProps> = (props) => {
+const StatusBar: React.FC<StatusBarType> = (props) => {
     const {
         style,
         setBackgroundColor,
@@ -39,7 +39,7 @@ const DsStatusBar: React.FC<DsStatusBarProps> = (props) => {
         }
     }, [setBackgroundColor, setHidden, setNetworkActivityIndicatorVisible, setTranslucent]);
 
-    return <StatusBar style={style || 'auto'} translucent {...attr} />;
+    return <Status style={style || 'auto'} translucent {...attr} />;
 };
 
-export default DsStatusBar;
+export default StatusBar;

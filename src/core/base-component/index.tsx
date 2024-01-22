@@ -8,12 +8,12 @@ import useBreakpoint from '../../hooks/useBreakpoint';
 import { parseBoxShadow, createAndFilterStyles, filterTextStyles } from '../utils';
 
 // types
-import type { ComponentMounterType } from './types';
+import type { BaseComponentType } from './types';
 
 // styles
 import { StyledComponents } from '../styles';
 
-const ComponentMounter: React.FC<ComponentMounterType> = (props) => {
+const BaseComponent: React.FC<BaseComponentType> = (props) => {
     const { children, _platform, _css, href, as = 'view', ...attr } = props;
 
     // hook
@@ -42,4 +42,4 @@ const ComponentMounter: React.FC<ComponentMounterType> = (props) => {
     );
 };
 
-export default ComponentMounter;
+export default BaseComponent;
