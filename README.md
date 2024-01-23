@@ -16,22 +16,24 @@ Ui component to react native (Expo Go, TypeScript, Styled-component and expo rou
 Instale my-project com npm
 
 ```bash
-  npm install native-flow
-  yarn add native-flow
+  npm install native-flow-ui
+  yarn add native-flow-ui
 ```
+
+Obs: versão beta é native-flow, e assim que sair a versão final, será native-flow-ui
 
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![App Screenshot](https://raw.githubusercontent.com/Jhow2017/native-flow-ui/main/assets/code.png)
 
 ## Uso/Exemplos
 
 ```javascript
-import { DsBox, DsLink } from 'native-flow-ui';
+import { Box, Link } from 'native-flow-ui';
 
 export default function Box() {
     return (
-        <DsBox
+        <Box
             flex={1}
             width={'100%'}
             justifyContent={{ xs: 'center' }}
@@ -51,10 +53,10 @@ export default function Box() {
             //     md: 'background-color: green; ',
             // }}
         >
-            <DsLink href="/" fontSize={32}>
+            <Link href="/" fontSize={32}>
                 Voltar
-            </DsLink>
-        </DsBox>
+            </Link>
+        </Box>
     );
 }
 ```
