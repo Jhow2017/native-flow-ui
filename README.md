@@ -1,40 +1,39 @@
-
 # Native Flow UI - React Native
 
 Ui component to react native (Expo Go, TypeScript, Styled-component and expo router v2)
 
-
 ## Funcionalidades
 
-- Temas dark e light (only 2)
-- Ui Declarative
-- Breakpoint
-- Breakpoint using values interval
-- _css to css styled-component
-- _platform function props to add validation ios or android
+-   Temas dark e light (only 2)
+-   Ui Declarative
+-   Breakpoint
+-   Breakpoint using values interval
+-   \_css to css styled-component
+-   \_platform function props to add validation ios or android
 
 ## Instalação
 
 Instale my-project com npm
 
 ```bash
-  npm install native-flow
-  yarn add native-flow
+  npm install native-flow-ui
+  yarn add native-flow-ui
 ```
-    
+
+Obs: versão beta é native-flow, e assim que sair a versão final, será native-flow-ui
+
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
-
+![App Screenshot](https://raw.githubusercontent.com/Jhow2017/native-flow-ui/main/assets/code.png)
 
 ## Uso/Exemplos
 
 ```javascript
-import { DsBox, DsLink } from 'native-flow-ui';
+import { Box, Link } from 'native-flow-ui';
 
 export default function Box() {
     return (
-        <DsBox
+        <Box
             flex={1}
             width={'100%'}
             justifyContent={{ xs: 'center' }}
@@ -54,22 +53,19 @@ export default function Box() {
             //     md: 'background-color: green; ',
             // }}
         >
-            <DsLink href="/" fontSize={32}>
+            <Link href="/" fontSize={32}>
                 Voltar
-            </DsLink>
-        </DsBox>
+            </Link>
+        </Box>
     );
 }
-
 ```
-
 
 ## Stack utilizada
 
-**Front-end:** React, React-Native, Expo Router V2 (Link),expo-status-bar, TypeScript, styled-component e moti.
-
+**Front-end:** React, React-Native, Expo Router V2 (Link),expo-status-bar, TypeScript,
+styled-component e moti.
 
 ## Autores
 
-- [@jhowgama](https://www.linkedin.com/in/jonathan-gama-2365a4187/)
-
+-   [@jhowgama](https://www.linkedin.com/in/jonathan-gama-2365a4187/)
