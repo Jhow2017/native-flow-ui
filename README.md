@@ -30,11 +30,11 @@ Instale my-project com npm
 ## Uso/Exemplos
 
 ```javascript
-import { DsBox, DsLink } from 'native-flow-ui';
+import { Box, Link } from 'native-flow-ui';
 
 export default function Box() {
     return (
-        <DsBox
+        <Box
             flex={1}
             width={'100%'}
             justifyContent={{ xs: 'center' }}
@@ -54,10 +54,10 @@ export default function Box() {
             //     md: 'background-color: green; ',
             // }}
         >
-            <DsLink href="/" fontSize={32}>
+            <Link href="/" fontSize={32}>
                 Voltar
-            </DsLink>
-        </DsBox>
+            </Link>
+        </Box>
     );
 }
 
